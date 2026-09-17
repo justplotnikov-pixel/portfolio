@@ -5,6 +5,27 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Егор Плотников - портфолио</title>
 <meta name="description" content="Контент-продюсер с уклоном в SMM. Портфолио: кейсы, управление проектами, музыкальный проект Егор Плот.">
+<script>
+(function () {
+  try {
+    var pref = localStorage.getItem('egp-lang');
+    if (pref === 'en') {
+      window.location.replace('en/');
+      return;
+    }
+    if (!pref) {
+      var lang = ((navigator.language || navigator.userLanguage || '') + '').toLowerCase();
+      var isRuLocale = lang.indexOf('ru') === 0 || lang.indexOf('uk') === 0 || lang.indexOf('be') === 0 || lang.indexOf('kk') === 0;
+      if (!isRuLocale) {
+        localStorage.setItem('egp-lang', 'en');
+        window.location.replace('en/');
+      } else {
+        localStorage.setItem('egp-lang', 'ru');
+      }
+    }
+  } catch (e) {}
+})();
+</script>
 </head>
 <body>
 <style>
@@ -81,6 +102,19 @@
     font-weight: 700;
     white-space: nowrap;
   }
+  #egp-root .egp-lang-switch {
+    display: inline-flex;
+    align-items: center;
+    padding: 6px 14px;
+    border: 1px solid var(--egp-line);
+    border-radius: 100px;
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--egp-ink-soft);
+    margin-right: 12px;
+  }
+  #egp-root .egp-lang-switch:hover { border-color: var(--egp-accent); color: var(--egp-accent); }
+  #egp-root .egp-hero-badge { font-size: 13px; color: var(--egp-ink-soft); font-weight: 600; margin: 0 0 6px; letter-spacing: .02em; }
   #egp-root .egp-burger {
     display: none;
     width: 36px; height: 36px;
@@ -319,6 +353,7 @@
         <li><a href="#egp-pm">Управление проектами</a></li>
         <li><a href="#egp-music">Музыка</a></li>
       </ul>
+      <a class="egp-lang-switch" href="en/index.html" onclick="try{localStorage.setItem('egp-lang','en')}catch(e){}">EN</a>
       <a class="egp-nav-cta" href="https://t.me/plotegor" target="_blank" rel="noopener">Написать в Telegram</a>
       <button class="egp-burger" id="egpBurger" aria-label="Меню"><span></span></button>
     </div>
