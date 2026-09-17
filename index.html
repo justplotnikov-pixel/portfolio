@@ -207,6 +207,10 @@
   #egp-root .egp-case-media-row img { width: 100%; height: auto; display: block; border-radius: 14px; }
   #egp-root .egp-case-photo--facade { margin-top: 18px; }
   #egp-root .egp-case-photo--facade img { aspect-ratio: 3 / 2; object-fit: cover; object-position: center 58%; }
+  #egp-root .egp-case-split--fill { align-items: stretch; }
+  #egp-root .egp-case-split--fill > div:first-child { display: flex; flex-direction: column; }
+  #egp-root .egp-case-facade-fill { flex: 1; margin-top: 24px; min-height: 160px; }
+  #egp-root .egp-case-facade-fill img { width: 100%; height: 100%; aspect-ratio: auto; object-fit: cover; object-position: center 58%; }
   #egp-root .egp-link-btn {
     display: inline-flex;
     align-items: center;
@@ -271,6 +275,8 @@
     #egp-root .egp-case-photo { max-width: 100%; }
     #egp-root .egp-case-split { grid-template-columns: 1fr; }
     #egp-root .egp-case-media-row { grid-template-columns: 1fr; }
+    #egp-root .egp-case-facade-fill { flex: none; min-height: 0; }
+    #egp-root .egp-case-facade-fill img { height: auto; aspect-ratio: 3 / 2; }
   }
   @media (max-width: 720px) {
     #egp-root .egp-nav-links, #egp-root .egp-nav-cta { display: none; }
@@ -455,7 +461,7 @@
           <h3>Первый выход бренда в федеральные СМИ</h3>
           <span class="egp-case-num">03</span>
         </div>
-        <div class="egp-case-split">
+        <div class="egp-case-split egp-case-split--fill">
           <div>
             <p>Авито предложили MAAG участие в новогоднем спецпроекте &mdash; в одной линейке со Сбером, ВкусВилл, Самокатом и Теремком.</p>
             <p>Креативную идею со стороны бренда придумал я: обычные профессии переупакованы в праздничные роли &mdash; &laquo;Стань стилистом, творцом сказочных образов&raquo;, &laquo;Стань директором магазина, руководителем волшебной команды&raquo;.</p>
@@ -465,13 +471,13 @@
                       <div><b>Shot, «База», «Осторожно, новости»</b><span>публикации в СМИ</span></div>
                       <div><b>40&ndash;65 тыс.</b><span>просмотров на пост в посевах</span></div>
                     </div>
+            <div class="egp-case-photo egp-case-photo--facade egp-case-facade-fill">
+          <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
+        </div>
           </div>
           <div class="egp-case-media">
             <img src="images/case-03-media-coverage.jpg" alt="Публикация об акции в Telegram-канале Осторожно, новости">
           </div>
-        </div>
-        <div class="egp-case-photo egp-case-photo--facade">
-          <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
         </div>
       </article>
 
