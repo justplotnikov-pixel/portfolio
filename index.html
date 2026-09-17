@@ -101,6 +101,7 @@
   /* --- hero --- */
   #egp-root .egp-hero { padding-top: 56px; }
   #egp-root .egp-hero-grid { display: grid; grid-template-columns: 1.3fr .8fr; gap: 40px; align-items: end; }
+  #egp-root .egp-hero-photo { margin-bottom: 44px; }
   #egp-root .egp-hero-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 22px; }
   #egp-root .egp-hero h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; }
   #egp-root .egp-role {
@@ -202,6 +203,10 @@
   #egp-root .egp-case-split { display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px; align-items: start; }
   #egp-root .egp-case-media { display: flex; flex-direction: column; gap: 10px; }
   #egp-root .egp-case-media img { width: 100%; height: auto; display: block; border-radius: 14px; }
+  #egp-root .egp-case-media-row { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; margin-top: 24px; align-items: start; }
+  #egp-root .egp-case-media-row img { width: 100%; height: auto; display: block; border-radius: 14px; }
+  #egp-root .egp-case-photo--facade { margin-top: 18px; }
+  #egp-root .egp-case-photo--facade img { aspect-ratio: 3 / 2; object-fit: cover; object-position: center 58%; }
   #egp-root .egp-link-btn {
     display: inline-flex;
     align-items: center;
@@ -265,6 +270,7 @@
     #egp-root .egp-hero-photo { max-width: 320px; margin: 0 auto; }
     #egp-root .egp-case-photo { max-width: 100%; }
     #egp-root .egp-case-split { grid-template-columns: 1fr; }
+    #egp-root .egp-case-media-row { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
     #egp-root .egp-nav-links, #egp-root .egp-nav-cta { display: none; }
@@ -283,7 +289,7 @@
       font-size: 15px;
       border-bottom: 1px solid var(--egp-line);
     }
-    #egp-root .egp-mobile-panel .egp-nav-cta { display: inline-flex; margin-top: 10px; }
+    #egp-root .egp-mobile-panel .egp-nav-cta { display: inline-flex; justify-content: center; margin-top: 10px; padding: 12px 22px; border-bottom: none; }
     #egp-root section { padding: 48px 0; }
     #egp-root .egp-stats { grid-template-columns: repeat(2, 1fr); }
     #egp-root .egp-case { padding: 22px; }
@@ -423,25 +429,24 @@
           <h3>Комьюнити из 30 авторов</h3>
           <span class="egp-case-num">02</span>
         </div>
-        <div class="egp-case-split">
-          <div>
-            <p>Каналы выросли &mdash; понадобился поток живого контента из магазинов по всей стране.</p>
-                    <p>Придумал программу внутренних авторов и защитил ее перед бизнесом. Собрал людей через опросник. Как работает: авторы приносят идеи, я собираю контент-план, ставлю ТЗ, принимаю материал в дедлайн, публикуем у нас и у них.</p>
-                    <p>Мотивация не деньгами, а статусом: авторов видят, отмечают, показывают. Быть креатором в компании стало престижно &mdash; система производит контент без меня.</p>
-            <div class="egp-case-stats">
+        <p>Каналы выросли &mdash; понадобился поток живого контента из магазинов по всей стране.</p>
+        <p>Придумал программу внутренних авторов и защитил ее перед бизнесом. Собрал людей через опросник. Как работает: авторы приносят идеи, я собираю контент-план, ставлю ТЗ, принимаю материал в дедлайн, публикуем у нас и у них.</p>
+        <p>Мотивация не деньгами, а статусом: авторов видят, отмечают, показывают. Быть креатором в компании стало престижно &mdash; система производит контент без меня.</p>
+        <div class="egp-case-stats">
                       <div><b>30</b><span>авторов от Калининграда до Владивостока</span></div>
                       <div><b>15&ndash;20</b><span>единиц контента в месяц, стабильно</span></div>
                       <div><b>EGC</b><span>готовый инструмент производства контента</span></div>
                     </div>
-          </div>
-          <div class="egp-case-media egp-case-media--portrait">
-            <img src="images/case-02-egc.jpg" alt="Контент от авторов EGC, съемка образов сотрудников для ECRU">
+        <div class="egp-case-media-row">
+          <div>
             <div class="egp-video-card">
               <video controls playsinline preload="none" poster="images/case-02-cover.jpg">
                 <source src="videos/Слайд 5 — видео от креатора.mp4" type="video/mp4">
               </video>
             </div>
+            <p class="egp-video-caption">Видео от креатора</p>
           </div>
+          <img src="images/case-02-egc.jpg" alt="Контент от авторов EGC, съемка образов сотрудников для ECRU">
         </div>
       </article>
 
@@ -453,18 +458,20 @@
         <div class="egp-case-split">
           <div>
             <p>Авито предложили MAAG участие в новогоднем спецпроекте &mdash; в одной линейке со Сбером, ВкусВилл, Самокатом и Теремком.</p>
-                    <p>Креативную идею со стороны бренда придумал я: обычные профессии переупакованы в праздничные роли &mdash; &laquo;Стань стилистом, творцом сказочных образов&raquo;, &laquo;Стань директором магазина, руководителем волшебной команды&raquo;.</p>
-                    <p>Согласовал креатив с командой и руководством, вел коммуникацию с Авито и внутренними отделами, готовил материалы для посевов, защитил результаты перед стейкхолдерами.</p>
+            <p>Креативную идею со стороны бренда придумал я: обычные профессии переупакованы в праздничные роли &mdash; &laquo;Стань стилистом, творцом сказочных образов&raquo;, &laquo;Стань директором магазина, руководителем волшебной команды&raquo;.</p>
+            <p>Согласовал креатив с командой и руководством, вел коммуникацию с Авито и внутренними отделами, готовил материалы для посевов, защитил результаты перед стейкхолдерами.</p>
             <div class="egp-case-stats">
                       <div><b>21+ млн</b><span>суммарный охват кампании в соцмедиа</span></div>
                       <div><b>Shot, «База», «Осторожно, новости»</b><span>публикации в СМИ</span></div>
                       <div><b>40&ndash;65 тыс.</b><span>просмотров на пост в посевах</span></div>
                     </div>
           </div>
-          <div class="egp-case-media egp-case-media--landscape">
-            <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
+          <div class="egp-case-media">
             <img src="images/case-03-media-coverage.jpg" alt="Публикация об акции в Telegram-канале Осторожно, новости">
           </div>
+        </div>
+        <div class="egp-case-photo egp-case-photo--facade">
+          <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
         </div>
       </article>
 
@@ -491,28 +498,30 @@
           <h3>Спецпроекты федерального уровня</h3>
           <span class="egp-case-num">05</span>
         </div>
-        <div class="egp-case-split">
-          <div>
-            <p>Здесь я со стороны бренда: ставил задачу, вел креатив и подрядчиков, принимал результат.</p>
+        <p>Здесь я со стороны бренда: ставил задачу, вел креатив и подрядчиков, принимал результат.</p>
             <p>Авито, летний спецпроект &laquo;Доска почета&raquo;. Отобрали героиню среди тысяч сотрудников, привезли ее из другого города, я организовал съемку в магазине, решал вопросы на площадке, принимал готовый ролик у продакшна.</p>
             <p>Ночная съемка в 4 магазинах для HR video reel. 10-часовая смена, продакшн-команда 10 человек, актеры &mdash; сотрудники из трех городов. Я координировал работу продакшна и коллег с нашей стороны.</p>
-            <div class="egp-case-stats">
+        <div class="egp-case-stats">
               <div><b>9,5 млн</b><span>охват при плане 250 тысяч</span></div>
               <div><b>&times;59</b><span>просмотры профиля работодателя</span></div>
               <div><b>&times;3,6</b><span>отклики год к году</span></div>
             </div>
-          </div>
-          <div class="egp-case-media">
+        <div class="egp-case-media-row">
+          <div>
             <div class="egp-video-card">
               <video controls playsinline preload="none" poster="images/case-05-1-cover.jpg">
                 <source src="videos/Слайд 9.1 — летни проект с Авито Работа.mp4" type="video/mp4">
               </video>
             </div>
+            <p class="egp-video-caption">Спецпроект с Авито</p>
+          </div>
+          <div>
             <div class="egp-video-card">
               <video controls playsinline preload="none" poster="images/case-05-2-cover.jpg">
                 <source src="videos/Слайд 9.2 — HR video reel.mp4" type="video/mp4">
               </video>
             </div>
+            <p class="egp-video-caption">HR video reel</p>
           </div>
         </div>
       </article>
@@ -619,7 +628,6 @@
           <a href="https://t.me/plotegor" target="_blank" rel="noopener">Telegram @plotegor</a>
           <a href="mailto:just.plotnikov@gmail.com">just.plotnikov@gmail.com</a>
         </div>
-        <p class="egp-fineprint">Егор Плотников</p>
       </div>
     </div>
   </section>
