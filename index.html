@@ -100,8 +100,8 @@
 
   /* --- hero --- */
   #egp-root .egp-hero { padding-top: 56px; }
-  #egp-root .egp-hero-grid { display: grid; grid-template-columns: 1.3fr .8fr; gap: 40px; align-items: center; }
-  #egp-root .egp-hero-photo img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 22px; }
+  #egp-root .egp-hero-grid { display: grid; grid-template-columns: 1.3fr .8fr; gap: 40px; align-items: end; }
+  #egp-root .egp-hero-photo img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; border-radius: 22px; }
   #egp-root .egp-hero h1 { font-size: clamp(34px, 6vw, 58px); line-height: 1.04; }
   #egp-root .egp-role {
     font-size: clamp(18px, 2.6vw, 24px);
@@ -199,6 +199,12 @@
   #egp-root .egp-case-photo img { width: 100%; max-height: 340px; object-fit: cover; border-radius: 14px; }
   #egp-root .egp-case-photo-row { display: flex; gap: 10px; margin-bottom: 18px; }
   #egp-root .egp-case-photo-row img { flex: 1; width: 100%; height: 200px; object-fit: cover; border-radius: 14px; }
+  #egp-root .egp-case-photo--site img { aspect-ratio: 16 / 10; max-height: none; object-position: top; }
+  #egp-root .egp-case-split { display: grid; grid-template-columns: 1.15fr .85fr; gap: 24px; align-items: start; }
+  #egp-root .egp-case-media { display: flex; flex-direction: column; gap: 10px; }
+  #egp-root .egp-case-media img { width: 100%; object-fit: cover; border-radius: 14px; }
+  #egp-root .egp-case-media--portrait img { aspect-ratio: 3 / 4; }
+  #egp-root .egp-case-media--landscape img { aspect-ratio: 4 / 3; }
   #egp-root .egp-link-btn {
     display: inline-flex;
     align-items: center;
@@ -212,6 +218,7 @@
   }
   #egp-root .egp-link-btn:hover { border-color: var(--egp-accent); color: var(--egp-accent); }
   #egp-root .egp-link-btn::after { content: ">"; font-weight: 700; }
+  #egp-root .egp-link-btn--plain::after { content: none; }
 
   /* --- pm section --- */
   #egp-root .egp-pm { background: var(--egp-ink); color: #fff; border-radius: 24px; padding: 44px 36px; }
@@ -225,8 +232,8 @@
   #egp-root .egp-pm-item p { font-size: 13.5px; color: #cfc9bd; margin: 0; }
 
   /* --- music --- */
-  #egp-root .egp-music { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
-  #egp-root .egp-video-list { display: flex; flex-direction: column; gap: 14px; }
+  #egp-root .egp-music { display: block; }
+  #egp-root .egp-video-list { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 28px; }
   #egp-root .egp-video-card { border-radius: 14px; overflow: hidden; background: #000; }
   #egp-root .egp-video-card video { width: 100%; max-height: 420px; display: block; aspect-ratio: 9 / 16; object-fit: cover; }
   #egp-root .egp-video-caption { padding: 8px 2px 0; font-size: 13px; font-weight: 700; color: var(--egp-ink-soft); }
@@ -256,10 +263,11 @@
     #egp-root .egp-about-grid { grid-template-columns: 1fr; gap: 28px; }
     #egp-root .egp-do-grid { grid-template-columns: repeat(2, 1fr); }
     #egp-root .egp-tools-grid { grid-template-columns: repeat(2, 1fr); }
-    #egp-root .egp-music { grid-template-columns: 1fr; }
+    #egp-root .egp-video-list { grid-template-columns: 1fr; }
     #egp-root .egp-hero-grid { grid-template-columns: 1fr; }
     #egp-root .egp-hero-photo { max-width: 320px; margin: 0 auto; }
     #egp-root .egp-case-photo { max-width: 100%; }
+    #egp-root .egp-case-split { grid-template-columns: 1fr; }
   }
   @media (max-width: 720px) {
     #egp-root .egp-nav-links, #egp-root .egp-nav-cta { display: none; }
@@ -319,7 +327,7 @@
     <div class="egp-wrap">
       <div class="egp-hero-grid">
         <div>
-          <p class="egp-eyebrow">Портфолио - 2026</p>
+          <p class="egp-eyebrow">Портфолио 2026</p>
           <h1>Егор Плотников</h1>
           <p class="egp-role">Контент-продюсер с уклоном в SMM</p>
           <p class="egp-role-sub">+ 2 года опыта в управлении креативными проектами</p>
@@ -335,7 +343,7 @@
       </div>
       <div class="egp-stats">
         <div class="egp-stat"><b>21+ млн</b><span>охват федеральной кампании</span></div>
-        <div class="egp-stat"><b>0 &gt; 5500</b><span>telegram с нуля, ERR 24%</span></div>
+        <div class="egp-stat"><b>0 &rarr; 5500</b><span>telegram с нуля, ERR 24%</span></div>
         <div class="egp-stat"><b>300+</b><span>заявок на вакансии через соцсети</span></div>
         <div class="egp-stat"><b>30</b><span>авторов делают контент по моим ТЗ</span></div>
         <div class="egp-stat"><b>4 года</b><span>ежедневно создаю вертикальный контент</span></div>
@@ -355,7 +363,7 @@
           <p>Всего 5 лет работы с командами, из них 2 года &mdash; управление креативными проектами.</p>
         </div>
         <div class="egp-pill-list">
-          <span class="egp-tag">Удаленно, часовой пояс &mdash; подстраиваюсь</span>
+          <span class="egp-tag">Удаленно</span>
           <span class="egp-tag">Figma, Photoshop, Tilda</span>
           <span class="egp-tag">Final Cut, CapCut</span>
           <span class="egp-tag">Notion, Google Таблицы</span>
@@ -392,18 +400,24 @@
           <h3>Соцсети бренда с нуля</h3>
           <span class="egp-case-num">01</span>
         </div>
-        <div class="egp-case-photo"><img src="images/case-01-telegram.jpg" alt="Карьерный Telegram-канал rmixed careers, 4574 подписчика"></div>
-        <p>Первая задача в компании &mdash; выстроить внешнюю коммуникацию с кандидатами. Было только сообщество ВК на 250 человек.</p>
-        <p>Начал с анализа рынка: как говорят конкуренты, с кем, через какие каналы. Увидел, что в fashion-ритейле карьерных каналов почти нет &mdash; весь найм идет через джоб-борды. Решил уйти от монополии hh и привлекать зумеров через контент их же сверстников.</p>
-        <p>Придумал концепцию и рубрики, писал идеи под каждый ролик, снимал и монтировал сам, часть контента делегировал сотрудникам в магазинах по всей стране. Рост построил без закупки рекламы: розыгрыши, репосты продуктовых каналов брендов, партнерства с вузами и торговыми центрами.</p>
-        <div class="egp-case-stats">
-          <div><b>0 &gt; 5500</b><span>telegram с нуля, ERR 24%</span></div>
-          <div><b>250 &gt; 1600</b><span>вконтакте, рост в 6 раз</span></div>
-          <div><b>300+</b><span>заявок на вакансии через карьерные каналы</span></div>
-        </div>
-        <div class="egp-case-links">
-          <a class="egp-link-btn" href="https://t.me/rmixed_careers" target="_blank" rel="noopener">t.me/rmixed_careers</a>
-          <a class="egp-link-btn" href="https://vk.com/rmixed.careers" target="_blank" rel="noopener">vk.com/rmixed.careers</a>
+        <div class="egp-case-split">
+          <div>
+            <p>Первая задача в компании &mdash; выстроить внешнюю коммуникацию с кандидатами. Было только сообщество ВК на 250 человек.</p>
+                    <p>Начал с анализа рынка: как говорят конкуренты, с кем, через какие каналы. Увидел, что в fashion-ритейле карьерных каналов почти нет &mdash; весь найм идет через джоб-борды. Решил уйти от монополии hh и привлекать зумеров через контент их же сверстников.</p>
+                    <p>Придумал концепцию и рубрики, писал идеи под каждый ролик, снимал и монтировал сам, часть контента делегировал сотрудникам в магазинах по всей стране. Рост построил без закупки рекламы: розыгрыши, репосты продуктовых каналов брендов, партнерства с вузами и торговыми центрами.</p>
+            <div class="egp-case-stats">
+                      <div><b>0 &rarr; 5500</b><span>telegram с нуля, ERR 24%</span></div>
+                      <div><b>250 &rarr; 1600</b><span>вконтакте, рост в 6 раз</span></div>
+                      <div><b>300+</b><span>заявок на вакансии через карьерные каналы</span></div>
+                    </div>
+            <div class="egp-case-links">
+                      <a class="egp-link-btn egp-link-btn--plain" href="https://t.me/rmixed_careers" target="_blank" rel="noopener">t.me/rmixed_careers</a>
+                      <a class="egp-link-btn egp-link-btn--plain" href="https://vk.com/rmixed.careers" target="_blank" rel="noopener">vk.com/rmixed.careers</a>
+            </div>
+          </div>
+          <div class="egp-case-media egp-case-media--portrait">
+            <img src="images/case-01-telegram.jpg" alt="Карьерный Telegram-канал rmixed careers, 4574 подписчика">
+          </div>
         </div>
       </article>
 
@@ -412,17 +426,23 @@
           <h3>Комьюнити из 30 авторов</h3>
           <span class="egp-case-num">02</span>
         </div>
-        <div class="egp-case-photo"><img src="images/case-02-egc.jpg" alt="Контент от авторов EGC, съемка образов сотрудников для ECRU"></div>
-        <p>Каналы выросли &mdash; понадобился поток живого контента из магазинов по всей стране.</p>
-        <p>Придумал программу внутренних авторов и защитил ее перед бизнесом. Собрал людей через опросник. Как работает: авторы приносят идеи, я собираю контент-план, ставлю ТЗ, принимаю материал в дедлайн, публикуем у нас и у них.</p>
-        <p>Мотивация не деньгами, а статусом: авторов видят, отмечают, показывают. Быть креатором в компании стало престижно &mdash; система производит контент без меня.</p>
-        <div class="egp-case-stats">
-          <div><b>30</b><span>авторов от Калининграда до Владивостока</span></div>
-          <div><b>15&ndash;20</b><span>единиц контента в месяц, стабильно</span></div>
-          <div><b>EGC</b><span>готовый инструмент производства контента</span></div>
-        </div>
-        <div class="egp-case-links">
-          <a class="egp-link-btn" href="https://disk.yandex.ru/i/zbhntjgDUWqkhw" target="_blank" rel="noopener">Видео автора</a>
+        <div class="egp-case-split">
+          <div>
+            <p>Каналы выросли &mdash; понадобился поток живого контента из магазинов по всей стране.</p>
+                    <p>Придумал программу внутренних авторов и защитил ее перед бизнесом. Собрал людей через опросник. Как работает: авторы приносят идеи, я собираю контент-план, ставлю ТЗ, принимаю материал в дедлайн, публикуем у нас и у них.</p>
+                    <p>Мотивация не деньгами, а статусом: авторов видят, отмечают, показывают. Быть креатором в компании стало престижно &mdash; система производит контент без меня.</p>
+            <div class="egp-case-stats">
+                      <div><b>30</b><span>авторов от Калининграда до Владивостока</span></div>
+                      <div><b>15&ndash;20</b><span>единиц контента в месяц, стабильно</span></div>
+                      <div><b>EGC</b><span>готовый инструмент производства контента</span></div>
+                    </div>
+            <div class="egp-case-links">
+                      <a class="egp-link-btn" href="https://disk.yandex.ru/i/zbhntjgDUWqkhw" target="_blank" rel="noopener">Видео автора</a>
+            </div>
+          </div>
+          <div class="egp-case-media egp-case-media--portrait">
+            <img src="images/case-02-egc.jpg" alt="Контент от авторов EGC, съемка образов сотрудников для ECRU">
+          </div>
         </div>
       </article>
 
@@ -431,18 +451,21 @@
           <h3>Первый выход бренда в федеральные СМИ</h3>
           <span class="egp-case-num">03</span>
         </div>
-        <div class="egp-case-photo-row">
-          <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
-          <img src="images/case-03-arbat.jpg" alt="Рекламный щит Авито Работа, Арбат">
-          <img src="images/case-03-erevan-plaza.jpg" alt="Рекламный щит Авито Работа, Ереван плаза">
-        </div>
-        <p>Авито предложили MAAG участие в новогоднем спецпроекте &mdash; в одной линейке со Сбером, ВкусВилл, Самокатом и Теремком.</p>
-        <p>Креативную идею со стороны бренда придумал я: обычные профессии переупакованы в праздничные роли &mdash; &laquo;Стань стилистом, творцом сказочных образов&raquo;, &laquo;Стань директором магазина, руководителем волшебной команды&raquo;.</p>
-        <p>Согласовал креатив с командой и руководством, вел коммуникацию с Авито и внутренними отделами, готовил материалы для посевов, защитил результаты перед стейкхолдерами.</p>
-        <div class="egp-case-stats">
-          <div><b>21+ млн</b><span>суммарный охват кампании в соцмедиа</span></div>
-          <div><b>Shot, «База»</b><span>и «Осторожно, новости» &mdash; публикации в СМИ</span></div>
-          <div><b>40&ndash;65 тыс.</b><span>просмотров на пост в посевах</span></div>
+        <div class="egp-case-split">
+          <div>
+            <p>Авито предложили MAAG участие в новогоднем спецпроекте &mdash; в одной линейке со Сбером, ВкусВилл, Самокатом и Теремком.</p>
+                    <p>Креативную идею со стороны бренда придумал я: обычные профессии переупакованы в праздничные роли &mdash; &laquo;Стань стилистом, творцом сказочных образов&raquo;, &laquo;Стань директором магазина, руководителем волшебной команды&raquo;.</p>
+                    <p>Согласовал креатив с командой и руководством, вел коммуникацию с Авито и внутренними отделами, готовил материалы для посевов, защитил результаты перед стейкхолдерами.</p>
+            <div class="egp-case-stats">
+                      <div><b>21+ млн</b><span>суммарный охват кампании в соцмедиа</span></div>
+                      <div><b>Shot, «База», «Осторожно, новости»</b><span>публикации в СМИ</span></div>
+                      <div><b>40&ndash;65 тыс.</b><span>просмотров на пост в посевах</span></div>
+                    </div>
+          </div>
+          <div class="egp-case-media egp-case-media--landscape">
+            <img src="images/case-03-mediafasad.jpg" alt="Медиафасад MAAG на здании">
+            <img src="images/case-03-arbat.jpg" alt="Рекламный щит Авито Работа, Арбат">
+          </div>
         </div>
       </article>
 
@@ -451,7 +474,7 @@
           <h3>Карьерный сайт: прототип за один рабочий день</h3>
           <span class="egp-case-num">04</span>
         </div>
-        <div class="egp-case-photo"><img src="images/case-04-careers-site.jpg" alt="Скриншот сайта careers.rmixed.ru"></div>
+        <div class="egp-case-photo egp-case-photo--site"><img src="images/case-04-careers-site.jpg" alt="Скриншот сайта careers.rmixed.ru"></div>
         <p>Понял, что компании нужен свой сайт: переливать трафик с брендовых площадок и не зависеть от джоб-бордов, где мы не контролируем ничего.</p>
         <p>Чтобы не ждать согласований и не тратить бюджет на дизайнера, собрал прототип на Tilda за рабочий день и показал бизнесу. Идею масштабировали: с коллегой разработали визуальный язык новой версии, дальше проект ушел в дизайн-команду на основе нашего демо.</p>
         <div class="egp-case-stats">
@@ -576,30 +599,16 @@
     </div>
   </section>
 
-  <section id="egp-tools">
-    <div class="egp-wrap">
-      <p class="egp-eyebrow">Инструменты</p>
-      <h2 class="egp-h2">Чем пользуюсь</h2>
-      <div class="egp-tools-grid">
-        <div class="egp-do-card"><h3>Видео</h3><p>Final Cut, CapCut</p></div>
-        <div class="egp-do-card"><h3>Дизайн и веб</h3><p>Figma, Photoshop, Tilda</p></div>
-        <div class="egp-do-card"><h3>Проекты</h3><p>Notion, Google Таблицы</p></div>
-        <div class="egp-do-card"><h3>ИИ</h3><p>Claude, ChatGPT, Midjourney, Suno</p></div>
-        <div class="egp-do-card"><h3>Аналитика</h3><p>Метрики каналов, KPI</p></div>
-      </div>
-    </div>
-  </section>
-
   <section id="egp-contacts">
     <div class="egp-wrap">
       <div class="egp-footer">
         <h2 class="egp-h2">Открыт к новым проектам</h2>
-        <p>Работаю с контентом полного цикла &mdash; от идеи до цифр в отчете &mdash; и веду проекты, где креативная идея становится продуктом в срок.</p>
+        <p>Работаю с контентом полного цикла: от идеи до цифр в отчете и веду проекты, где креативная идея становится продуктом в срок.</p>
         <div class="egp-footer-links">
           <a href="https://t.me/plotegor" target="_blank" rel="noopener">Telegram @plotegor</a>
           <a href="mailto:just.plotnikov@gmail.com">just.plotnikov@gmail.com</a>
         </div>
-        <p class="egp-fineprint">Егор Плотников, портфолио, 2026</p>
+        <p class="egp-fineprint">Егор Плотников</p>
       </div>
     </div>
   </section>
